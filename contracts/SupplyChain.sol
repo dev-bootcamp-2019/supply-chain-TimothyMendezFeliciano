@@ -101,6 +101,7 @@ contract SupplyChain {
   {
     items[sku].buyer = msg.sender;
     items[sku].state = State.Sold;
+    items[sku].seller.transfer(items[sku].price);
     skuCount--;
     emit Sold(sku);
   }
